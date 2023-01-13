@@ -26,7 +26,6 @@ model_save_name = 'rf_model_mvp230113.pt'
 model=(torch.load(model_save_name))
 
 
-
 estimator = model
 df_x = df.iloc[:, 0:40]
 x_featurenames = df_x.columns
@@ -41,9 +40,9 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),
 
 
 #Caching the model for faster loading
-@st.cache
+#@st.cache
 
-st.image("handLens.PNG")
+st.image('handLens.PNG')
 st.subheader('Explanation setup:')
 
 i = st.number_input('ID Instancia:', min_value=0, max_value=544, value=0)
