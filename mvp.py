@@ -8,7 +8,7 @@ import numpy as np
 import torch
 import sklearn_json as skljson
 
-df = pd.read_csv("df_x_SKBfregression_545noADME_withYandYpredandId.csv", sep=";", decimal=".")
+df = pd.read_csv('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=';', decimal='.')
 
 #feedback = pd.read_csv("feedback.csv", sep=";")
 #if "feedback" not in st.session_state:
@@ -21,9 +21,8 @@ df = pd.read_csv("df_x_SKBfregression_545noADME_withYandYpredandId.csv", sep=";"
 #model = skljson.from_json('rr_model.json')
 
 model_save_name = 'rf_model_mvp230113.pt'
-#path = F"/content/drive/MyDrive/BACKUPs/USP/data/noDuplicates/{model_save_name}"
-#model=(torch.load(path))
-model=(torch.load(model_save_name))
+path = F'./{model_save_name}'
+model=(torch.load(path))
 
 
 estimator = model
