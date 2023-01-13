@@ -48,6 +48,6 @@ st.subheader('Explanation setup:')
 i = st.number_input('ID Instancia:', min_value=0, max_value=544, value=0)
 
 
-if st.button('Mostrar Explicação'):
+if st.button('Mostrar Explicacao'):
     explanation = explainer1.explain_instance(df_x.iloc[i,:], estimator.predict, num_features=10)
     st.pyplot(explanation.as_pyplot_figure())
