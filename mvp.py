@@ -8,7 +8,7 @@ import numpy as np
 import torch
 import sklearn_json as skljson
 
-df = st.cache(pd.read_csv)("df_x_SKBfregression_545noADME_withYandYpredandId.csv", sep=",", decimal=".")
+df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
 
 #feedback = pd.read_csv("feedback.csv", sep=";")
 #if "feedback" not in st.session_state:
@@ -33,9 +33,8 @@ x_featurenames = df_x.columns
 explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names=x_featurenames, verbose=False, mode='regression')
 
 
-
 #Caching the model for faster loading
-@st.cache
+#@st.cache
 
 st.image('handLens.png')
 st.subheader('Explanation setup:')
