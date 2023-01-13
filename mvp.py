@@ -29,12 +29,8 @@ estimator = model
 df_x = df.iloc[:, 0:40]
 x_featurenames = df_x.columns
 
-explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),
-                    feature_names=x_featurenames, 
-                    # class_names=['cnt'], 
-                    # categorical_features=, 
-                    # There is no categorical features in this example, otherwise specify them.                               
-                    verbose=False, mode='regression')
+
+explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names=x_featurenames, verbose=False, mode='regression')
 
 
 
