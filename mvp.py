@@ -8,7 +8,7 @@ import numpy as np
 import torch
 import sklearn_json as skljson
 
-df = pd.read_csv('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
+df = st.cache(pd.read_csv)("df_x_SKBfregression_545noADME_withYandYpredandId.csv", sep=",", decimal=".")
 
 #feedback = pd.read_csv("feedback.csv", sep=";")
 #if "feedback" not in st.session_state:
