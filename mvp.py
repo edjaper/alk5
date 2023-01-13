@@ -35,9 +35,9 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 
 
 #Caching the model for faster loading
-#@st.cache
+@st.cache
 
-st.image('handLens.PNG')
+#st.image('handLens.png')
 st.subheader('Explanation setup:')
 
 i = st.number_input('ID Instancia:', min_value=0, max_value=544, value=0)
