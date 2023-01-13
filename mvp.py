@@ -45,7 +45,7 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),
 
 st.subheader('Explanation setup:')
 
-i = st.number_input('ID Instância:', min_value=0, max_value=544, value=0)
+i = st.number_input('ID Instancia:', min_value=0, max_value=544, value=0)
 
 
 if st.button('Mostrar Explicação'):
