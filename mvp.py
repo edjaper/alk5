@@ -110,7 +110,7 @@ def lime():
     
 page_names_to_funcs = {
     "Sobre": intro,
-    #"Visão Geral": plotting,
+    "Visão Geral": plotting,
     #'Mapping Demo': mapping_demo,
     "Ver explicação": lime
 }
