@@ -52,8 +52,7 @@ def intro():
 
         - Escolha o identificador da molécula
         - Analise a explicação gerada pelo LIME
-         - Ask a question in our [community
-          forums](https://discuss.streamlit.io)
+          - Ask a question in our
 
         ### See more complex demos
 
