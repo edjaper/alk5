@@ -48,11 +48,11 @@ def intro():
 
         **👈 Navegue pelo menu à esquerda**
 
-        ### Want to learn more?
+        ### Ver explicação
 
-        - Check out [streamlit.io](https://streamlit.io)
-        - Jump into our [documentation](https://docs.streamlit.io)
-        - Ask a question in our [community
+        - Escolha o identificador da molécula
+        - Analise a explicação gerada pelo LIME
+        -- Ask a question in our [community
           forums](https://discuss.streamlit.io)
 
         ### See more complex demos
