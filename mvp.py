@@ -39,8 +39,8 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 def intro():
     import streamlit as st
 
-    st.write("# Welcome to Streamlit! 👋")
-    st.sidebar.success("Select a demo above.")
+    st.write("# LIME QSAR 🔍")
+    st.sidebar.success("Navegue aqui.")
 
     st.markdown(
         """
