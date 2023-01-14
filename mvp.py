@@ -44,11 +44,9 @@ def intro():
 
     st.markdown(
         """
-        Streamlit is an open-source app framework built specifically for
-        Machine Learning and Data Science projects.
+        Vamos inspecionar o modelo opaco através de uma aproximação linear.
 
-        **👈 Select a demo from the dropdown on the left** to see some examples
-        of what Streamlit can do!
+        **👈 Navegue pelo menu à esquerda**
 
         ### Want to learn more?
 
