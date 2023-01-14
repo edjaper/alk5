@@ -36,6 +36,18 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 #Caching the model for faster loading
 #@st.cache
 
+
+page_names_to_funcs = {
+    "—": intro,
+    "Plotting Demo": plotting_demo,
+    "Mapping Demo": mapping_demo,
+    "DataFrame Demo": data_frame_demo
+}
+
+demo_name = st.sidebar.selectbox("Choose a demo", page_names_to_funcs.keys())
+page_names_to_funcs[demo_name]()
+
+
 st.image('handLens.png')
 st.subheader('Explanation setup:')
 
@@ -48,13 +60,4 @@ if st.button('Mostrar Explicacao'):
 
    
 
-page_names_to_funcs = {
-    '—': intro,
-    'Plotting Demo': plotting_demo,
-    'Mapping Demo': mapping_demo,
-    'DataFrame Demo': data_frame_demo
-}
 
-demo_name = st.sidebar.selectbox('Visualizar', page_names_to_funcs.keys())
-page_names_to_funcs[demo_name]()    
-    
