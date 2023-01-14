@@ -62,7 +62,7 @@ def intro():
     )
     
 
-def data_frame_demo():
+def lime():
     import streamlit as st
 
     st.image('handLens.png')
@@ -79,7 +79,7 @@ page_names_to_funcs = {
     "Sobre": intro,
     #'Plotting Demo': plotting_demo,
     #'Mapping Demo': mapping_demo,
-    "Ver explicação": data_frame_demo
+    "Ver explicação": lime
 }
 
 demo_name = st.sidebar.selectbox('Choose a demo', page_names_to_funcs.keys())
