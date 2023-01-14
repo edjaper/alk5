@@ -70,8 +70,8 @@ def data_frame_demo():
     import streamlit as st
 
     st.image('handLens.png')
-    st.subheader('Explanation setup:')
-    i = st.number_input('ID Instancia:', min_value=0, max_value=544, value=0)
+    st.subheader("Explicação via LIME")
+    i = st.number_input('ID da molécula:', min_value=0, max_value=544, value=0)
 
     if st.button('Mostrar Explicacao'):
         explanation = explainer1.explain_instance(df_x.iloc[i,:], estimator.predict, num_features=10)
