@@ -80,7 +80,7 @@ def plotting():
 
     for i in range(1, 101):
         new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
-        status_text.text("%i%% Complete" % i)
+        status_text.text("%i%% Completo" % i)
         chart.add_rows(new_rows)
         progress_bar.progress(i)
         last_rows = new_rows
