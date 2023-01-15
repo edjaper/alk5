@@ -8,6 +8,7 @@ import numpy as np
 import torch
 import sklearn_json as skljson
 import plotly.express as px
+import plotly.figure_factory as ff
 
 df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
 
@@ -64,7 +65,7 @@ def mapping_demo():
                        gender=["Men"]*n_schools + ["Women"]*n_schools))
 
     # Use column names of df for the different parameters x, y, color, ...
-    fig = px.scatter(dfw, x="salary", y="school", color="gender",
+    fig = ff.scatter(dfw, x="salary", y="school", color="gender",
                  title="Gender Earnings Disparity",
                  labels={"salary":"Annual Salary (in thousands)"} # customize axis label
                 )
