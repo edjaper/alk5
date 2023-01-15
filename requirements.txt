@@ -4,4 +4,5 @@ pandas
 numpy
 lime
 torch
-plotly
+plotly.figure_factory
+plotly.express
