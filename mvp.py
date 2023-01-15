@@ -52,7 +52,7 @@ def mapping_demo():
     progress_bar = st.sidebar.progress(0)
     status_text = st.sidebar.empty()
     last_rows = np.random.randn(1, 1)
-    last_rows1 = df.loc[0, 'pIC50']
+    last_rows1 = np.array(df.loc[0, 'pIC50'])
     last_rows2 = df.loc[0, 'pIC50_predito']
     chart = st.line_chart(last_rows)
     chart.add_rows(last_rows1)
