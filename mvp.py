@@ -116,13 +116,12 @@ def mapping_demo():
     last_rows1 = np.random.randn(1, 1)
     chart = st.line_chart(last_rows)
     t = 14
-    p = 0
 
     for i in range(1, t):
         p = int(np.round(((i)/t)*100,2))
         new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
         new_rows1 = last_rows1[-1, :] + np.random.randn(4, 2).cumsum(axis=0)
-        status_text.text("%p%% Moléculas" % p)
+        status_text.text("%p%% Moléculas" % i)
         chart.add_rows(new_rows)
         chart.add_rows(new_rows1)
         progress_bar.progress(p)
