@@ -54,7 +54,7 @@ def mapping_demo():
     last_rows = np.random.randn(1, 1)
     last_rows1 = np.random.randn(1, 1)
     chart = st.line_chart(last_rows)
-    t = 14
+    t = 545
 
     for i in range(1, t):
         p = int(np.round(((i)/t)*100,2))
