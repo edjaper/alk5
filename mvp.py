@@ -122,7 +122,7 @@ def mapping_demo():
         p = np.round(((i+1)/t)*100,2)
         new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
         new_rows1 = last_rows1[-1, :] + np.random.randn(4, 2).cumsum(axis=0)
-        status_text.text("%p Moléculas" % p)
+        status_text.text("%p%% Moléculas" % p)
         chart.add_rows(new_rows)
         chart.add_rows(new_rows1)
         progress_bar.progress(p)
