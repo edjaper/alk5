@@ -36,6 +36,48 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 #Caching the model for faster loading
 #@st.cache
 
+    
+def mapping_demo():
+    import streamlit as st
+    import time
+    import numpy as np
+
+    st.markdown(f'# {list(page_names_to_funcs.keys())[2]}')
+    st.write(
+        """
+        O gráfico mostra o pIC50 real versus o pIC50 predito pelo modelo. Você pode anotar os identificadores de moléculas que deseja inspecionar no menu **Ver explicação**
+"""
+    )
+
+    progress_bar = st.sidebar.progress(0)
+    status_text = st.sidebar.empty()
+    last_rows = np.random.randn(1, 1)
+    last_rows1 = np.random.randn(1, 1)
+    chart = st.line_chart(last_rows)
+    t = 14
+
+    for i in range(1, t):
+        p = int(np.round(((i)/t)*100,2))
+        new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
+        new_rows1 = last_rows1[-1, :] + np.random.randn(4, 2).cumsum(axis=0)
+        status_text.text("%i%% Moléculas" % i)
+        chart.add_rows(new_rows)
+        chart.add_rows(new_rows1)
+        progress_bar.progress(p)
+        last_rows = new_rows
+        last_rows1 = new_rows1
+        time.sleep(0.01)
+
+    progress_bar.empty()
+
+    # Streamlit widgets automatically run the script from top to bottom. Since
+    # this button is not connected to any other logic, it just causes a plain
+    # rerun.
+    st.button("Ver de novo")
+
+
+    
+    
 def intro():
     import streamlit as st
 
@@ -96,46 +138,6 @@ def plotting():
     # this button is not connected to any other logic, it just causes a plain
     # rerun.
     st.button("Ver de novo")
-
-    
-def mapping_demo():
-    import streamlit as st
-    import time
-    import numpy as np
-
-    st.markdown(f'# {list(page_names_to_funcs.keys())[2]}')
-    st.write(
-        """
-        O gráfico mostra o pIC50 real versus o pIC50 predito pelo modelo. Você pode anotar os identificadores de moléculas que deseja inspecionar no menu **Ver explicação**
-"""
-    )
-
-    progress_bar = st.sidebar.progress(0)
-    status_text = st.sidebar.empty()
-    last_rows = np.random.randn(1, 1)
-    last_rows1 = np.random.randn(1, 1)
-    chart = st.line_chart(last_rows)
-    t = 14
-
-    for i in range(1, t):
-        p = int(np.round(((i)/t)*100,2))
-        new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
-        new_rows1 = last_rows1[-1, :] + np.random.randn(4, 2).cumsum(axis=0)
-        status_text.text("%p%% Moléculas" % i)
-        chart.add_rows(new_rows)
-        chart.add_rows(new_rows1)
-        progress_bar.progress(p)
-        last_rows = new_rows
-        last_rows1 = new_rows1
-        time.sleep(0.01)
-
-    progress_bar.empty()
-
-    # Streamlit widgets automatically run the script from top to bottom. Since
-    # this button is not connected to any other logic, it just causes a plain
-    # rerun.
-    st.button("Ver de novo")
-
     
     
 def lime():
