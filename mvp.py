@@ -7,6 +7,7 @@ import lime.lime_tabular
 import numpy as np
 import torch
 import sklearn_json as skljson
+import plotly.express as px
 
 df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
 
@@ -36,8 +37,42 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 #Caching the model for faster loading
 #@st.cache
 
-    
 def mapping_demo():
+    import streamlit as st
+    import time
+    import numpy as np
+
+    st.markdown(f'# {list(page_names_to_funcs.keys())[2]}')
+    st.write(
+        """
+        O gráfico mostra o pIC50 real versus o pIC50 predito pelo modelo. Você pode anotar os identificadores de moléculas que deseja inspecionar no menu **Ver explicação**
+"""
+    )
+
+    import plotly.express as px
+    import pandas as pd
+
+    schools = ["Brown", "NYU", "Notre Dame", "Cornell", "Tufts", "Yale",
+           "Dartmouth", "Chicago", "Columbia", "Duke", "Georgetown",
+           "Princeton", "U.Penn", "Stanford", "MIT", "Harvard"]
+    n_schools = len(schools)
+
+    women_salary = [72, 67, 73, 80, 76, 79, 84, 78, 86, 93, 94, 90, 92, 96, 94, 112]
+    men_salary = [92, 94, 100, 107, 112, 114, 114, 118, 119, 124, 131, 137, 141, 151, 152, 165]
+
+    dfw = pd.DataFrame(dict(school=schools*2, salary=men_salary + women_salary,
+                       gender=["Men"]*n_schools + ["Women"]*n_schools))
+
+    # Use column names of df for the different parameters x, y, color, ...
+    fig = px.scatter(dfw, x="salary", y="school", color="gender",
+                 title="Gender Earnings Disparity",
+                 labels={"salary":"Annual Salary (in thousands)"} # customize axis label
+                )
+    st.fig.show()
+
+    
+    
+def mapping_demo_1():
     import streamlit as st
     import time
     import numpy as np
