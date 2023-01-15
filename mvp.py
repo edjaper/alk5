@@ -66,7 +66,7 @@ def mapping_demo():
 
     # Use column names of df for the different parameters x, y, color, ...
     fig = px.scatter(dfw, x="salary", y="school", color="gender", title="Gender Earnings Disparity",labels={"salary":"Annual Salary (in thousands)"} # customize axis label)
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, theme="streamlit", use_conatiner_width=True)
 
     
     
