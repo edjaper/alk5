@@ -62,7 +62,7 @@ def mapping_demo():
     for i in range(1, t):
         new_rows1 = np.array(df.loc[i, 'pIC50'])
         new_rows2 = np.array(df.loc[i, 'pIC50_predito'])
-        
+        p = int(np.round(((i+1)/t)*100,2))
         status_text.text("%i Moléculas" % i)
         chart.add_rows(new_rows1)
         chart.add_rows(new_rows2)
