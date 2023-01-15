@@ -59,6 +59,11 @@ def mapping_demo():
     chart.add_rows(last_rows2)
     t = 545
 
+    last_rows1 = np.array(df.loc[1, 'pIC50'])
+    last_rows2 = np.array(df.loc[1, 'pIC50_predito'])
+    chart.add_rows(last_rows1)
+    chart.add_rows(last_rows2)
+    
     for i in range(1, t):
         new_rows1 = last_rows1 + np.array(df.loc[i, 'pIC50'])
         new_rows2 = last_rows2 + np.array(df.loc[i, 'pIC50_predito'])
