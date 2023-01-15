@@ -103,7 +103,7 @@ def mapping_demo():
     import time
     import numpy as np
 
-    st.markdown(f'# {list(page_names_to_funcs.keys())[1]}')
+    st.markdown(f'# {list(page_names_to_funcs.keys())[2]}')
     st.write(
         """
         O gráfico mostra o pIC50 real versus o predito pelo modelo. Você pode anotar os identificadores de moléculas que deseja inspecionar no menu **Ver explicação**
@@ -125,7 +125,7 @@ def mapping_demo():
         progress_bar.progress(i)
         last_rows = new_rows
         last_rows1 = new_rows1
-        time.sleep(0.05)
+        time.sleep(0.01)
 
     progress_bar.empty()
 
