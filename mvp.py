@@ -52,21 +52,23 @@ def mapping_demo():
     progress_bar = st.sidebar.progress(0)
     status_text = st.sidebar.empty()
     last_rows = np.random.randn(1, 1)
-    last_rows1 = dx['pIC50']
-    last_rows2 = dx['pIC50_predito']
+    last_rows1 = df_x.loc[0, 'pIC50']
+    last_rows2 = df_x.loc[0, 'pIC50_predito']
     chart = st.line_chart(last_rows)
+    chart.add_rows(last_rows1)
+    chart.add_rows(last_rows2)
     t = 545
 
     for i in range(1, t):
-        new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
-        new_rows1 = last_rows1[-1, :] + np.random.randn(4, 2).cumsum(axis=0)
+        new_rows1 = df_x.loc[i, 'pIC50']
+        new_rows2 = df_x.loc[i, 'pIC50_predito']
         
         status_text.text("%i Moléculas" % i)
-        chart.add_rows(new_rows)
         chart.add_rows(new_rows1)
+        chart.add_rows(new_rows2)
         progress_bar.progress(p)
-        last_rows = new_rows
         last_rows1 = new_rows1
+        last_rows2 = new_rows2
         time.sleep(0.005)
 
     progress_bar.empty()
