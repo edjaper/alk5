@@ -54,8 +54,8 @@ def mapping_demo():
     last_rows = np.random.randn(1, 1)
     last_rows1 = np.array(df.loc[0, 'pIC50'])
     last_rows2 = np.array(df.loc[0, 'pIC50_predito'])
-    chart = st.line_chart(last_rows)
-    chart.add_rows(last_rows1)
+    chart = st.line_chart(last_rows1)
+    #chart.add_rows(last_rows1)
     chart.add_rows(last_rows2)
     t = 545
 
