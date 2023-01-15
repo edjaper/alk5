@@ -106,7 +106,7 @@ def mapping_demo():
     st.markdown(f'# {list(page_names_to_funcs.keys())[2]}')
     st.write(
         """
-        O gráfico mostra o pIC50 real versus o predito pelo modelo. Você pode anotar os identificadores de moléculas que deseja inspecionar no menu **Ver explicação**
+        O gráfico mostra o pIC50 real versus o pIC50 predito pelo modelo. Você pode anotar os identificadores de moléculas que deseja inspecionar no menu **Ver explicação**
 """
     )
 
@@ -118,8 +118,8 @@ def mapping_demo():
     t = 14
     p = 0
 
-    for i in range(1, 545):
-        p = np.round(((i+1)/t)*100,2)
+    for i in range(1, t):
+        p = np.round(((i)/t)*100,2)
         new_rows = last_rows[-1, :] + np.random.randn(5, 1).cumsum(axis=0)
         new_rows1 = last_rows1[-1, :] + np.random.randn(4, 2).cumsum(axis=0)
         status_text.text("%p%% Moléculas" % p)
