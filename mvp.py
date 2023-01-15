@@ -68,7 +68,7 @@ def mapping_demo():
                  title="Gender Earnings Disparity",
                  labels={"salary":"Annual Salary (in thousands)"} # customize axis label
                 )
-    st.fig.show()
+    st.plotly_chart(fig)
 
     
     
