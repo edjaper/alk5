@@ -170,6 +170,10 @@ def intro():
 
         **👈 Navegue pelo menu à esquerda**
 
+        ### Visão geral
+
+        - Visão geral da previsão do modelo versus valor real
+        
         ### Ver explicação
 
         - Escolha o identificador da molécula
@@ -177,9 +181,7 @@ def intro():
           - Verde = contribui positivamente para o resultado
           - Vermelho = contribui negativamente para o resultado
 
-        ### Mapa
 
-        - Visão geral da previsão do modelo versus valor real
     """
     )
     
@@ -235,7 +237,7 @@ def lime():
     
 page_names_to_funcs = {
     "Sobre": intro,
-    "Visão Geral": plotting,
+    "Visão geral": plotting,
     "Ver explicação": lime,
     "Mapping Demo": mapping_demo,    
     "Temp": mapping_demo2
