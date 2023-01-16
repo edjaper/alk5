@@ -183,7 +183,7 @@ def intro():
     """
     )
     
-def plotting():
+def mapping_demo2():
     import streamlit as st
     import time
     import numpy as np
