@@ -51,7 +51,7 @@ def dataset():
     
     ids = st.multiselect('Selecionar moléculas', df['id'].unique())
     #st.write('You selected colors:', type(ids))
-    st.write('        Lista:')
+    st.write('Lista:')
     st.write(df[df['id'].isin(ids)])
     
     
@@ -198,7 +198,11 @@ def intro():
         - Analise a explicação gerada pelo LIME
           - Verde = contribui positivamente para o resultado
           - Vermelho = contribui negativamente para o resultado
+        
+        ### Conjunto de dados
 
+        - Veja o conjunto de dados completo e
+        - Selecione uma lista de identificadores de moléculas para comparar        
 
     """
     )
@@ -258,9 +262,9 @@ page_names_to_funcs = {
     "Sobre": intro,
     "Visão geral": plotting,
     "Ver explicação": lime,
+    "Conjunto de dados": dataset,    
     "Mapping Demo": mapping_demo,    
-    "Temp": mapping_demo2,
-    "Conjunto de dados": dataset
+    "Temp": mapping_demo2
 }
 
 demo_name = st.sidebar.selectbox('Menu', page_names_to_funcs.keys())
