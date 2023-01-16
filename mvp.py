@@ -54,11 +54,11 @@ def mapping_demo2():
     import plotly.express as px
     import pandas as pd
 
-    y1=list(df_x_SKBfregression_withYandYpredandId.loc[:, 'pIC50'])
-    y2=list(df_x_SKBfregression_withYandYpredandId.loc[:, 'pIC50_predito'])
+    y1=list(df.loc[:, 'pIC50'])
+    y2=list(df.loc[:, 'pIC50_predito'])
     y1.extend(y2)
     
-    x1=df_x_SKBfregression_withYandYpredandId.loc[:, 'id'].to_list()
+    x1=df.loc[:, 'id'].to_list()
     n_x = len(x1)
     x2=[*x1, *x1]
 
@@ -66,10 +66,10 @@ def mapping_demo2():
     b= ['predito'] * 545
     c=[*a, *b]    
 
-    df = pd.DataFrame(dict(id=x2, pIC50=y1, valor=c))
+    dfp = pd.DataFrame(dict(id=x2, pIC50=y1, valor=c))
 
     # Use column names of df for the different parameters x, y, color, ...
-    fig = px.line(df, x="id", y="pIC50", color="valor", title="pIC50 Real x Predição do modelo",
+    fig = px.line(dfp, x="id", y="pIC50", color="valor", title="pIC50 Real x Predição do modelo",
                  labels={"id":"IDentificador da molécula"} # customize axis label
                 )
 
