@@ -51,7 +51,7 @@ def dataset():
     
     ids = st.multiselect('Selecionar moléculas', df['id'].unique())
     #st.write('You selected colors:', type(ids))
-    st.write('Lista:', ids)
+    st.write('        Lista:')
     st.write(df[df['id'].isin(ids)])
     
     
