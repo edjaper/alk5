@@ -39,12 +39,12 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 #@st.cache
 
 
-def mapping_demo2():
+def plotting():
     import streamlit as st
     import time
     import numpy as np
 
-    st.markdown(f'# {list(page_names_to_funcs.keys())[4]}')
+    st.markdown(f'# {list(page_names_to_funcs.keys())[1]}')
     st.write(
         """
         O gráfico mostra o pIC50 real versus o pIC50 predito pelo modelo. Você pode anotar os identificadores de moléculas que deseja inspecionar no menu **Ver explicação**
@@ -236,8 +236,8 @@ def lime():
 page_names_to_funcs = {
     "Sobre": intro,
     "Visão Geral": plotting,
-    "Mapping Demo": mapping_demo,
     "Ver explicação": lime,
+    "Mapping Demo": mapping_demo,    
     "Temp": mapping_demo2
 }
 
