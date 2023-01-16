@@ -234,21 +234,37 @@ def lime():
         st.pyplot(explanation.as_pyplot_figure())    
     
     
-def dataset():
-    import streamlit as st
+def dataset(df: pd.DataFrame) -> pd.DataFrame:
+#def dataset():    
+    #import streamlit as st
 
-    st.subheader("Moléculas")
+    #st.subheader("Moléculas")
     
     # write dataframe to screen
-    st.write(df)
-        
+    #st.write(df)
+    
+    """
+    Adds a UI on top of a dataframe to let viewers filter columns
+
+    Args:
+        df (pd.DataFrame): Original dataframe
+
+    Returns:
+        pd.DataFrame: Filtered dataframe
+    """
+    modify = st.checkbox("Add filters")
+
+    if not modify:
+        return df 
+
+
 page_names_to_funcs = {
     "Sobre": intro,
     "Visão geral": plotting,
     "Ver explicação": lime,
     "Mapping Demo": mapping_demo,    
     "Temp": mapping_demo2,
-    "Conjunto de dados": dataset
+    "Conjunto de dados": dataset(df)
 }
 
 demo_name = st.sidebar.selectbox('Menu', page_names_to_funcs.keys())
