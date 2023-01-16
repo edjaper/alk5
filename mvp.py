@@ -40,6 +40,18 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 
 
 
+def mapping_demo():    
+    import streamlit as st
+
+    st.subheader("Jointplot")  
+    variavel_a = st.selectbox( 'Descritor 1', df.columns.to_list()) 
+    variavel_b = st.selectbox( 'Descritor 2', df.columns.to_list()) 
+
+    #st.write('You selected colors:', type(ids))
+    st.write('1: ', variavel_a)
+    st.write('2: ', variavel_b)
+ 
+
     
 def dataset():    
     import streamlit as st
@@ -95,7 +107,7 @@ def plotting():
 
     
     
-def mapping_demo():
+def mapping_demo5():
     import streamlit as st
     import time
     import numpy as np
