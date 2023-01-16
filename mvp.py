@@ -234,13 +234,21 @@ def lime():
         st.pyplot(explanation.as_pyplot_figure())    
     
     
+ def dataset():
+    import streamlit as st
+
+    st.subheader("Moléculas")
     
+    # write dataframe to screen
+    st.write(df)
+        
 page_names_to_funcs = {
     "Sobre": intro,
     "Visão geral": plotting,
     "Ver explicação": lime,
     "Mapping Demo": mapping_demo,    
-    "Temp": mapping_demo2
+    "Temp": mapping_demo2,
+    "Conjunto de dados": dataset
 }
 
 demo_name = st.sidebar.selectbox('Menu', page_names_to_funcs.keys())
