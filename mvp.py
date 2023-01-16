@@ -50,6 +50,7 @@ def dataset():
     st.write(df)
     
     ids = st.multiselect('Selecionar moléculas', df['id'].unique())
+    st.write('You selected colors:', type(ids))
     st.write('You selected colors:', ids)
     
     
