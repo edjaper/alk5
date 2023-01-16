@@ -264,7 +264,7 @@ page_names_to_funcs = {
     "Ver explicação": lime,
     "Mapping Demo": mapping_demo,    
     "Temp": mapping_demo2,
-    "Conjunto de dados": dataset(df)
+    "Conjunto de dados": dataset
 }
 
 demo_name = st.sidebar.selectbox('Menu', page_names_to_funcs.keys())
