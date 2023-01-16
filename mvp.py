@@ -39,6 +39,32 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 #@st.cache
 
 
+def dataset(df: pd.DataFrame) -> pd.DataFrame:
+    #def dataset():    
+    import streamlit as st
+
+    #st.subheader("Moléculas")
+    
+    # write dataframe to screen
+    #st.write(df)
+    
+    """
+    Adds a UI on top of a dataframe to let viewers filter columns
+
+    Args:
+        df (pd.DataFrame): Original dataframe
+
+    Returns:
+        pd.DataFrame: Filtered dataframe
+    """
+    modify = st.checkbox("Add filters")
+
+    if not modify:
+        return df 
+
+    
+    
+    
 def plotting():
     import streamlit as st
     import time
@@ -234,28 +260,6 @@ def lime():
         st.pyplot(explanation.as_pyplot_figure())    
     
     
-def dataset(df: pd.DataFrame) -> pd.DataFrame:
-#def dataset():    
-    #import streamlit as st
-
-    #st.subheader("Moléculas")
-    
-    # write dataframe to screen
-    #st.write(df)
-    
-    """
-    Adds a UI on top of a dataframe to let viewers filter columns
-
-    Args:
-        df (pd.DataFrame): Original dataframe
-
-    Returns:
-        pd.DataFrame: Filtered dataframe
-    """
-    modify = st.checkbox("Add filters")
-
-    if not modify:
-        return df 
 
 
 page_names_to_funcs = {
