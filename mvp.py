@@ -39,29 +39,18 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 #@st.cache
 
 
-def dataset():
-    #def dataset():    
+
+    
+def dataset():    
     import streamlit as st
 
-    #st.subheader("Moléculas")
+    st.subheader("Moléculas")
     
     # write dataframe to screen
-    #st.write(df)
+    st.write(df)
     
-    """
-    Adds a UI on top of a dataframe to let viewers filter columns
 
-    Args:
-        df (pd.DataFrame): Original dataframe
-
-    Returns:
-        pd.DataFrame: Filtered dataframe
-    """
-    modify = st.checkbox("Add filters")
-
-    if not modify:
-        return df 
-
+    
     
     
     
