@@ -54,19 +54,25 @@ def mapping_demo2():
     import plotly.express as px
     import pandas as pd
 
-    schools = ["Brown", "NYU", "Notre Dame", "Cornell", "Tufts", "Yale",
-           "Dartmouth", "Chicago", "Columbia", "Duke", "Georgetown",
-           "Princeton", "U.Penn", "Stanford", "MIT", "Harvard"]
-    n_schools = len(schools)
+    y1=list(df_x_SKBfregression_withYandYpredandId.loc[:, 'pIC50'])
+    y2=list(df_x_SKBfregression_withYandYpredandId.loc[:, 'pIC50_predito'])
+    y1.extend(y2)
+    
+    x1=df_x_SKBfregression_withYandYpredandId.loc[:, 'id'].to_list()
+    n_x = len(x1)
+    x2=[*x1, *x1]
 
-    women_salary = [72, 67, 73, 80, 76, 79, 84, 78, 86, 93, 94, 90, 92, 96, 94, 112]
-    men_salary = [92, 94, 100, 107, 112, 114, 114, 118, 119, 124, 131, 137, 141, 151, 152, 165]
+    a= ['real'] * 545
+    b= ['predito'] * 545
+    c=[*a, *b]    
 
-    dfw = pd.DataFrame(dict(school=schools*2, salary=men_salary + women_salary,
-                       gender=["Men"]*n_schools + ["Women"]*n_schools))
+    df = pd.DataFrame(dict(id=x2, pIC50=y1, valor=c))
 
     # Use column names of df for the different parameters x, y, color, ...
-    fig = px.scatter(dfw, x="salary", y="school", color="gender", title="Gender Earnings Disparity",labels={"salary":"Annual Salary (in thousands)"}) # customize axis label
+    fig = px.line(df, x="id", y="pIC50", color="valor", title="pIC50 Real x Predição do modelo",
+                 labels={"id":"IDentificador da molécula"} # customize axis label
+                )
+
     st.plotly_chart(fig, theme='streamlit', use_conatiner_width=True)
 
     
