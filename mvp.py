@@ -234,7 +234,7 @@ def lime():
         st.pyplot(explanation.as_pyplot_figure())    
     
     
- def dataset():
+def dataset():
     import streamlit as st
 
     st.subheader("Moléculas")
