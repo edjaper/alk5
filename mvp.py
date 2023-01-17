@@ -49,7 +49,7 @@ def mapping_demo():
 
     #st.write('You selected colors:', type(ids))
     st.write('1: ', variavel_a)
-    st.write('2: ', variavel_b)
+    st.write('2 tipo: ', type(variavel_b))
     
     fig = px.scatter(df, x = variavel_a, y = variavel_b)
     st.pyplot(fig)  
