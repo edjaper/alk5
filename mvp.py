@@ -9,7 +9,6 @@ import torch
 import sklearn_json as skljson
 import plotly.express as px
 import plotly.figure_factory as ff
-import seaborn as sns
 
 df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
 
