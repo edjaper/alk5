@@ -9,6 +9,7 @@ import torch
 import sklearn_json as skljson
 import plotly.express as px
 import plotly.figure_factory as ff
+import seaborn as sns
 
 df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
 
@@ -42,6 +43,7 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 
 def mapping_demo():    
     import streamlit as st
+    import seaborn as sns
 
     st.subheader("Jointplot")  
     variavel_a = st.selectbox( 'Descritor 1', df.columns.to_list()) 
@@ -50,6 +52,9 @@ def mapping_demo():
     #st.write('You selected colors:', type(ids))
     st.write('1: ', variavel_a)
     st.write('2: ', variavel_b)
+    
+    fig = sns.jointplot(x = variavel_a, y = variavel_b, kind = 'reg', data=df)
+    st.pyplot(fig)  
  
 
     
