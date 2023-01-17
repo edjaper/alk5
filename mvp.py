@@ -215,6 +215,10 @@ def intro():
         - Veja o conjunto de dados completo e
         - Selecione uma lista de identificadores de moléculas para comparar        
 
+        ### Jointplot
+
+        - Selecione duas variáveis e compare as suas distribuições no grágico
+        
     """
     )
     
