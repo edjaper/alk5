@@ -40,16 +40,12 @@ explainer1 = lime.lime_tabular.LimeTabularExplainer(np.array(df_x),feature_names
 
 
 
-def mapping_demo():    
+def jointplot():    
     import streamlit as st
 
     st.subheader("Jointplot")  
     variavel_a = st.selectbox( 'Descritor 1', df.columns.to_list()) 
     variavel_b = st.selectbox( 'Descritor 2', df.columns.to_list()) 
-
-    #st.write('You selected colors:', type(ids))
-    st.write('1: ', variavel_a)
-    st.write('2 tipo: ', type(variavel_b))
     
     fig = px.scatter(df, x = variavel_a, y = variavel_b, marginal_x="histogram", marginal_y="histogram", color = variavel_b)
     st.plotly_chart(fig, use_conatiner_width=True, theme=None)
@@ -278,8 +274,8 @@ page_names_to_funcs = {
     "Visão geral": plotting,
     "Ver explicação": lime,
     "Conjunto de dados": dataset,    
-    "Mapping Demo": mapping_demo,    
-    "Temp": mapping_demo2
+    "Jointplot": jointplot    
+    #"Temp": mapping_demo2
 }
 
 demo_name = st.sidebar.selectbox('Menu', page_names_to_funcs.keys())
