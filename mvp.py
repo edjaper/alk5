@@ -47,7 +47,7 @@ def jointplot():
     variavel_a = st.selectbox( 'Descritor 1', df.columns.to_list()) 
     variavel_b = st.selectbox( 'Descritor 2', df.columns.to_list()) 
     
-    fig = px.scatter(df, x = variavel_a, y = variavel_b, marginal_x="histogram", marginal_y="histogram", color = variavel_b, hover_name="id", size="pIC50", size_max=60)
+    fig = px.scatter(df, x = variavel_a, y = variavel_b, marginal_x="histogram", marginal_y="histogram", color = variavel_b, hover_name="id", size="pIC50", size_max=10)
     st.plotly_chart(fig, use_conatiner_width=True, theme=None)
  
 
