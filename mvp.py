@@ -52,7 +52,7 @@ def mapping_demo():
     st.write('2 tipo: ', type(variavel_b))
     
     fig = px.scatter(df, x = variavel_a, y = variavel_b, marginal_x="histogram", marginal_y="histogram", color = variavel_b)
-    st.plotly_chart(fig, use_conatiner_width=True, theme="plotly")
+    st.plotly_chart(fig, use_conatiner_width=True, theme=None)
  
 
     
