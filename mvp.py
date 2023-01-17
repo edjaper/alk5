@@ -207,8 +207,8 @@ def intro():
 
         - Escolha o identificador da molécula
         - Analise a explicação gerada pelo LIME
-          - :green[Verde] = contribui positivamente para o resultado
-          - :red[Vermelho] = contribui negativamente para o resultado
+          - **:green[Verde]** = contribui positivamente para o resultado
+          - **:red[Vermelho]** = contribui negativamente para o resultado
         
         ### Conjunto de dados
 
