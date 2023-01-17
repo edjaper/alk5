@@ -51,7 +51,7 @@ def mapping_demo():
     st.write('1: ', variavel_a)
     st.write('2: ', variavel_b)
     
-    fig = px.scatter(x = variavel_a, y = variavel_b, kind = 'reg', data=df)
+    fig = px.scatter(df, x = variavel_a, y = variavel_b)
     st.pyplot(fig)  
  
 
