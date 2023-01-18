@@ -70,15 +70,14 @@ def jointplot():
 def dataset():    
     import streamlit as st
 
-    st.subheader("Moléculas")
-    
-    # write dataframe to screen
-    st.write(df)
-    
     ids = st.multiselect('Selecionar moléculas', df['id'].unique())
-    #st.write('You selected colors:', type(ids))
     st.write('Lista:')
     st.write(df[df['id'].isin(ids)])
+    
+    st.subheader("Moléculas")
+    st.write(df)
+    
+
     
     
     
