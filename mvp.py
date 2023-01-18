@@ -9,8 +9,23 @@ import torch
 import sklearn_json as skljson
 import plotly.express as px
 import plotly.figure_factory as ff
+from gsheetsdb import connect
+
+# Create a connection object.
+conn = connect()
+sheet_url = "https://docs.google.com/spreadsheets/d/11QZjVGnbT3y7enxDc4IWCLcxy2gGpVQAfFoN8r3ytRM/edit#gid=0"
+# Perform SQL query on the Google Sheet.
+# Uses st.cache to only rerun when the query changes or after 1 sec.
+@st.cache(ttl=1)
+def run_query(query):
+    rows = conn.execute(query, headers=1)
+    rows = rows.fetchall()
+    return rows
+
+
 
 df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
+
 
 #feedback = pd.read_csv("feedback.csv", sep=";")
 #if "feedback" not in st.session_state:
@@ -268,7 +283,18 @@ def lime():
 
     if st.button('Mostrar Explicacao'):
         explanation = explainer1.explain_instance(df_x.iloc[i,:], estimator.predict, num_features=10)
-        st.pyplot(explanation.as_pyplot_figure())    
+        st.pyplot(explanation.as_pyplot_figure())  
+        
+        def onClick(a):
+            rows = run_query(f'SELECT * FROM "{sheet_url}"')
+            for row in rows:
+                if( int(row.id)==int(a)):
+                #st.write(int(row.id), row.feedback)
+                texto = str(row.feedback)
+                if (texto=="nan" or texto=="None"):
+                    texto=""
+            st.text_area('Clique no botão abaixo para buscar dados da planilha de comentários', value=texto            
+        st.button("Buscar comentário atualizado da planilha", on_click = onClick(id))
     
     
 
