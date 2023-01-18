@@ -192,7 +192,7 @@ def plotting():
     dfp = pd.DataFrame(dict(id=x2, pIC50=y1, valor=c))
 
     # Use column names of df for the different parameters x, y, color, ...
-    fig = px.line(dfp, x="id", y="pIC50", color="valor", title="pIC50 Real x Predição do modelo",
+    fig = px.line(dfp, x="id", y="pIC50", color="valor", markers=True, title="pIC50 Real x Predição do modelo",
                  labels={"id":"IDentificador da molécula"} # customize axis label
                 )
 
