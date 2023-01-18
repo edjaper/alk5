@@ -154,7 +154,8 @@ def dataset():
     st.write(df[df['id'].isin(ids)])
     
     st.subheader("Todas")
-    st.write(df)
+    #st.write(df)
+    st.dataframe(filter_dataframe(df))
     
 
     
