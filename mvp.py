@@ -285,17 +285,15 @@ def lime():
         explanation = explainer1.explain_instance(df_x.iloc[i,:], estimator.predict, num_features=10)
         st.pyplot(explanation.as_pyplot_figure())  
         
-        def onClick(a):
-            rows = run_query(f'SELECT * FROM "{sheet_url}"')
-            for row in rows:
-                if( int(row.id)==int(a)):
-                    #st.write(int(row.id), row.feedback)
-                    texto = str(row.feedback)
+        rows = run_query(f'SELECT * FROM "{sheet_url}"')
+        for row in rows:
+            if( int(row.id)==int(a)):
+                texto = str(row.feedback)
                 if (texto=="nan" or texto=="None"):
                     texto=""
-            st.text_area('Clique no botão abaixo para buscar dados da planilha de comentários', value=texto)     
+        st.text_area('Clique no botão abaixo para buscar dados da planilha de comentários', value=texto)     
             
-        st.button("Buscar comentário atualizado da planilha", on_click = onClick(i))
+ 
     
     
 
