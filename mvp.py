@@ -287,7 +287,7 @@ def lime():
         
         rows = run_query(f'SELECT * FROM "{sheet_url}"')
         for row in rows:
-            if( int(row.id)==int(a)):
+            if( int(row.id)==int(i)):
                 texto = str(row.feedback)
                 if (texto=="nan" or texto=="None"):
                     texto=""
