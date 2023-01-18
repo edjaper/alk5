@@ -289,8 +289,8 @@ def lime():
             rows = run_query(f'SELECT * FROM "{sheet_url}"')
             for row in rows:
                 if( int(row.id)==int(a)):
-                #st.write(int(row.id), row.feedback)
-                texto = str(row.feedback)
+                    #st.write(int(row.id), row.feedback)
+                    texto = str(row.feedback)
                 if (texto=="nan" or texto=="None"):
                     texto=""
             st.text_area('Clique no botão abaixo para buscar dados da planilha de comentários', value=texto            
