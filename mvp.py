@@ -143,7 +143,28 @@ def jointplot():
     fig = px.scatter(df, x = variavel_a, y = variavel_b, marginal_x="histogram", marginal_y="histogram", color = "pIC50", hover_name="id", size="pIC50_predito", size_max=5)
     st.plotly_chart(fig, use_conatiner_width=True, theme=None)
  
+def violinplot():    
+    import streamlit as st
+    st.subheader("Violinplot")  
 
+    y1=list(df.loc[:, 'pIC50'])
+    y2=list(df.loc[:, 'pIC50_predito'])
+    y1.extend(y2)
+    
+    x1=df.loc[:, 'id'].to_list()
+    x2=[*x1, *x1]
+
+    a= ['real'] * 545
+    b= ['predito'] * 545
+    c=[*a, *b]    
+
+    dfp = pd.DataFrame(dict(id=x2, pIC50=y1, valor=c))
+  
+    fig = px.violin(dfp, x="pIC50", y="valor", color="valor", box=True, points="all", title="pIC50 Real x Predição do modelo", labels={"id":"IDentificador da molécula"}, violinmode='overlay', hover_data=dfp.columns)
+    #fig = px.scatter(df, x = variavel_a, y = variavel_b, marginal_x="histogram", marginal_y="histogram", color = "pIC50", hover_name="id", size="pIC50_predito", size_max=5)
+    st.plotly_chart(fig, use_conatiner_width=True, theme=None)
+    
+    
     
 def dataset():    
     import streamlit as st
@@ -382,7 +403,8 @@ page_names_to_funcs = {
     "Visão geral": plotting,
     "Ver explicação": lime,
     "Conjunto de dados": dataset,    
-    "Jointplot": jointplot    
+    "Jointplot": jointplot,
+    "Violinplot": violinplot 
     #"Temp": mapping_demo2
 }
 
