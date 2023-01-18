@@ -45,7 +45,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     Returns:
         pd.DataFrame: Filtered dataframe
     """
-    modify = st.checkbox("Add filters")
+    modify = st.checkbox("Adicionar filtros")
 
     if not modify:
         return df
@@ -66,13 +66,13 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     modification_container = st.container()
 
     with modification_container:
-        to_filter_columns = st.multiselect("Filter dataframe on", df.columns)
+        to_filter_columns = st.multiselect("Descritores utilizados para filtrar moléculas", df.columns)
         for column in to_filter_columns:
             left, right = st.columns((1, 20))
             # Treat columns with < 10 unique values as categorical
             if is_categorical_dtype(df[column]) or df[column].nunique() < 10:
                 user_cat_input = right.multiselect(
-                    f"Values for {column}",
+                    f"Valores para {column}",
                     df[column].unique(),
                     default=list(df[column].unique()),
                 )
