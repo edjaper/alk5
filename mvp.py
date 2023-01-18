@@ -11,6 +11,7 @@ import plotly.express as px
 import plotly.figure_factory as ff
 from gsheetsdb import connect
 
+
 # Create a connection object.
 conn = connect()
 sheet_url = "https://docs.google.com/spreadsheets/d/11QZjVGnbT3y7enxDc4IWCLcxy2gGpVQAfFoN8r3ytRM/edit#gid=0"
@@ -24,19 +25,22 @@ def run_query(query):
 
 
 
+from pandas.api.types import (
+    is_categorical_dtype,
+    is_datetime64_any_dtype,
+    is_numeric_dtype,
+    is_object_dtype,
+)
+
+
 df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
 
-
-#feedback = pd.read_csv("feedback.csv", sep=";")
-#if "feedback" not in st.session_state:
-#    st.session_state['feedback'] = pd.DataFrame(columns=['id','feedback'])
     
 
 
 #Loading up the Regression model we created
 #model = Ridge()
 #model = skljson.from_json('rr_model.json')
-
 model_save_name = 'rf_model_mvp230113.pt'
 path = F'./{model_save_name}'
 model=(torch.load(path))
