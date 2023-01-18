@@ -291,7 +291,7 @@ def lime():
                 texto = str(row.feedback)
                 if (texto=="nan" or texto=="None"):
                     texto=""
-        st.text_area('Clique no botão abaixo para buscar dados da planilha de comentários', value=texto)     
+        st.text_area('Clique no botão **Mostrar Explicação** para buscar dados da planilha de comentários novamente', value=texto)     
             
  
     
