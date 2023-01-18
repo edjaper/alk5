@@ -295,7 +295,7 @@ def lime():
                     texto=""
             st.text_area('Clique no botão abaixo para buscar dados da planilha de comentários', value=texto)     
             
-        st.button("Buscar comentário atualizado da planilha", on_click = onClick(id))
+        st.button("Buscar comentário atualizado da planilha", on_click = onClick(i))
     
     
 
