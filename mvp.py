@@ -70,11 +70,12 @@ def jointplot():
 def dataset():    
     import streamlit as st
 
+    st.subheader("Compare moléculas")
     ids = st.multiselect('Selecionar moléculas', df['id'].unique())
     st.write('Lista:')
     st.write(df[df['id'].isin(ids)])
     
-    st.subheader("Moléculas")
+    st.subheader("Todas")
     st.write(df)
     
 
