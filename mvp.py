@@ -334,7 +334,7 @@ def intro():
 
         - Selecione duas variáveis e compare as suas distribuições no gráfico
         
-         ### Violintplot
+         ### Violinplot
 
         - Compare as distribuições de pIC50 real versus predito no gráfico
         
