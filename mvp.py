@@ -1,5 +1,5 @@
-from sklearn.linear_model import Ridge
-from sklearn.ensemble import RandomForestRegressor
+from scikit-learn.linear_model import Ridge
+from scikit-learn.ensemble import RandomForestRegressor
 import streamlit as st
 import pandas as pd
 import lime
