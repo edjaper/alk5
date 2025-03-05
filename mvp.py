@@ -17,7 +17,7 @@ conn = connect()
 sheet_url = "https://docs.google.com/spreadsheets/d/15IOIQE3gbh4YwM8H9mqkL8PpRNQvvmQp/edit?usp=drivesdk&ouid=113751553050057009732&rtpof=true&sd=true"
 # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 1 sec.
-@st.cache(ttl=1)
+@st.cache_data(ttl=1)
 def run_query(query):
     rows = conn.execute(query, headers=1)
     rows = rows.fetchall()
@@ -33,7 +33,7 @@ from pandas.api.types import (
 )
 
 
-df = st.cache(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
+df = st.cache_data(pd.read_csv)('df_x_SKBfregression_545noADME_withYandYpredandId.csv', sep=',', decimal='.')
 
     
 
@@ -141,7 +141,7 @@ def jointplot():
     variavel_b = st.selectbox( 'Descritor 2', df.columns.to_list()) 
     
     fig = px.scatter(df, x = variavel_a, y = variavel_b, marginal_x="histogram", marginal_y="histogram", color = "pIC50", hover_name="id", size="pIC50_predito", size_max=5)
-    st.plotly_chart(fig, use_conatiner_width=True, theme=None)
+    st.plotly_chart(fig, use_container_width=True, theme=None)
  
 def violinplot():    
     import streamlit as st
@@ -162,7 +162,7 @@ def violinplot():
   
     fig = px.violin(dfp, x="pIC50", y="valor", color="valor", box=True, points="all", title="pIC50 Real x Predição do modelo", labels={"id":"IDentificador da molécula"}, violinmode='overlay', hover_data=dfp.columns)
     #fig = px.scatter(df, x = variavel_a, y = variavel_b, marginal_x="histogram", marginal_y="histogram", color = "pIC50", hover_name="id", size="pIC50_predito", size_max=5)
-    st.plotly_chart(fig, use_conatiner_width=True, theme=None)
+    st.plotly_chart(fig, use_container_width=True, theme=None)
     
     
     
