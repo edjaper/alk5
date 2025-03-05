@@ -14,7 +14,7 @@ from gsheetsdb import connect
 
 # Create a connection object.
 conn = connect()
-sheet_url = "https://docs.google.com/spreadsheets/d/11QZjVGnbT3y7enxDc4IWCLcxy2gGpVQAfFoN8r3ytRM/edit#gid=0"
+sheet_url = "https://docs.google.com/spreadsheets/d/15IOIQE3gbh4YwM8H9mqkL8PpRNQvvmQp/edit?usp=drivesdk&ouid=113751553050057009732&rtpof=true&sd=true"
 # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 1 sec.
 @st.cache(ttl=1)
